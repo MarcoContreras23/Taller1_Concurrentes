@@ -16,23 +16,29 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        int[][] matriz1 = new int[100][100];
-        int [][] matriz2 = new int[100][100];
-        int [][] resultado = new int [100][100];
+        long ini, fin, dif = 0;
+        int tamaño = 1000;
+        int[][] matriz1 = new int[tamaño][tamaño];
+        int [][] matriz2 = new int[tamaño][tamaño];
+        int [][] resultado = new int [tamaño][tamaño];
         Matrix matrizR = new Matrix();
         Matrix matrix1 = new Matrix();
         Matrix matrix2 = new Matrix();
         matriz1 = matrix1.fuelMatix(matriz1);
         matriz2 = matrix2.fuelMatix(matriz2);
         
+        ini = System.currentTimeMillis();
         resultado = matrizR.multiply(matriz1, matriz2);
+        fin = System.currentTimeMillis();
         
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
-                 System.out.println("resultado: " +resultado[i][j]);
+        dif = (fin - ini);
+        for (int i = 0; i < tamaño; i++) {
+            for (int j = 0; j < tamaño; j++) {
+                 System.out.print(resultado[i][j] + " ");
             }
-        }
-        
+            System.out.println(" ");
+        } 
+        System.out.println("Tiempo: " + (dif/1000f));
     }
     
 }
